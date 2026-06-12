@@ -1158,3 +1158,34 @@ a {
         justify-content: center;
     }
 }
+
+/* ============================================================
+   BOTÓN FIXED
+   ============================================================ */
+.btn-fixed {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    background: var(--cta);
+    color: var(--cta-text);
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    border-radius: 99px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(251, 240, 56, 0.45);
+    animation: pulseFixed 2.5s ease-in-out infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-fixed:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(251, 240, 56, 0.6);
+}
+
+@keyframes pulseFixed {
+    0%, 100% { box-shadow: 0 8px 32px rgba(251, 240, 56, 0.45); }
+    50%       { box-shadow: 0 8px 48px rgba(251, 240, 56, 0.75); }
+}
