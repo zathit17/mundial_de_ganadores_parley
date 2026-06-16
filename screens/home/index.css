@@ -54,6 +54,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    max-width: 100vw;
     line-height: 1.65;
 }
 
@@ -303,7 +304,7 @@ a {
     display: flex;
     align-items: center;
     padding: 80px 0 60px;
-    overflow: visible;
+    overflow: hidden;
     margin-bottom: -2px;
     background: url('../../assets/backgrounds/para hero fondo 2.jpg') center center / cover no-repeat;
 }
@@ -432,13 +433,14 @@ a {
 
 .trophy-logo {
     width: 100%;
-    max-width: 220px;
+    max-width: 270px;
     margin: 0 auto 16px;
     object-fit: contain;
     filter: drop-shadow(0 8px 32px rgba(245, 158, 11, 0.4));
 }
 
 .trophy-label {
+    display: none;
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 32px;
@@ -450,6 +452,7 @@ a {
     display: flex;
     gap: 24px;
     align-items: center;
+    margin-top: 12px;
 }
 
 .stat {
@@ -459,8 +462,9 @@ a {
 }
 
 .stat-num {
-    font-size: 1.8rem;
+    font-size: 2.6rem;
     font-weight: 900;
+    line-height: 1;
     background: linear-gradient(135deg, var(--red), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -468,10 +472,10 @@ a {
 }
 
 .stat-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-align: center;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .stat-divider {
@@ -1094,6 +1098,8 @@ a {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* — Tablet landscape — */
 @media (max-width: 960px) {
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1102,44 +1108,106 @@ a {
     .registro-grid,
     .app-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
     }
 
     .app-mockup {
         order: -1;
     }
+
+    .hero-inner {
+        gap: 32px;
+    }
+
+    .trophy-card {
+        width: 280px;
+        height: auto;
+        min-height: 300px;
+    }
 }
 
+/* — Tablet portrait / mobile grande — */
 @media (max-width: 768px) {
+    /* Nav: oculta links de texto, deja solo el botón */
+    .nav-links li:not(:last-child) {
+        display: none;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 100px 0 60px;
+    }
+
     .hero-inner {
         flex-direction: column;
         text-align: center;
-        padding-top: 60px;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
     }
 
     .hero-cta {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 12px;
     }
 
     .hero-subtitle {
         margin-left: auto;
         margin-right: auto;
+        font-size: 1rem;
+    }
+
+    /* Trophy card */
+    .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .fw-canvas {
+        display: none;
     }
 
     .trophy-card {
-        width: 280px;
-        height: 320px;
+        width: min(300px, 85vw);
+        height: auto;
+        min-height: 0;
     }
 
+    .trophy-inner {
+        padding: 24px 20px;
+    }
+
+    .trophy-logo {
+        max-width: 200px;
+        margin-bottom: 12px;
+    }
+
+    .stat-num {
+        font-size: 2rem;
+    }
+
+    /* Benefits */
     .benefits-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Registro */
     .bono-amount {
         font-size: 5rem;
     }
 
+    /* App */
+    .app-gif {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Footer */
     .footer-inner {
         flex-direction: column;
         align-items: center;
@@ -1156,6 +1224,54 @@ a {
 
     .social-links {
         justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Botón fixed: centrado */
+    .btn-fixed {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 20px;
+        font-size: 0.9rem;
+        padding: 12px 20px;
+        white-space: nowrap;
+    }
+
+    .btn-fixed:hover {
+        transform: translateX(-50%) translateY(-4px) scale(1.04);
+    }
+}
+
+/* — Mobile pequeño — */
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+    }
+
+    .btn-large {
+        font-size: 0.82rem;
+        padding: 11px 16px;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    .benefit-card {
+        padding: 24px 20px;
+    }
+
+    .trophy-card {
+        width: 90vw;
+    }
+
+    .bono-card {
+        padding: 32px 20px;
+    }
+
+    .bono-amount {
+        font-size: 4rem;
     }
 }
 
