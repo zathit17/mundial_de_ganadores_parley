@@ -1232,10 +1232,11 @@ a {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        bottom: 20px;
-        font-size: 0.9rem;
-        padding: 12px 20px;
+        bottom: 16px;
+        font-size: 0.95rem;
+        padding: 13px 28px;
         white-space: nowrap;
+        width: max-content;
     }
 
     .btn-fixed:hover {
